@@ -28,6 +28,13 @@ A dual-purpose IoT project that measures household energy consumption in real ti
 - Energy usage is monitored in real-time, and power supply is automatically cut off when the prepaid balance reaches zero.
 - The current balance and units are displayed both locally and on the mobile app.
 
+## Libraries
+- Adafruit IO Arduino for Adafruit IO cloud integration (https://github.com/adafruit/Adafruit_IO_Arduino)
+- Liquid crystal for LCD display (https://github.com/arduino-libraries/LiquidCrystal)
+- Adafruit MQTT Library for MQTT protocol where the energy meter publishes live power/unit/balance readings to Adafruit IO using MQTT, which is more efficient and reliable for IoT data streams than regular HTTP. (https://github.com/adafruit/Adafruit_MQTT_Library/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
+- Arduino JSON for sending (or receiving) data to/from Adafruit IO or other cloud services, values are packaged into JSON strings. This lets the cloud service and your device “understand” each other—regardless of programming language or platform.
+
+
 ## Project Report and Documentation
 
 The detailed project report is included in this repository for reference.
