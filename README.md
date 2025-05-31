@@ -1,50 +1,119 @@
-# Integrated Smart Energy Meter with Home Automation
+# 📡 Integrated Smart Energy Meter with Home Automation
 
-A dual-purpose IoT project that measures household energy consumption in real time **and** allows remote control of appliances. Energy readings are displayed locally on a 16×2 LCD and published to an Adafruit IO dashboard. Relay drivers provide basic home automation control.
+A **real-time, IoT-enabled prepaid smart energy meter** with live cloud monitoring and home automation capabilities. Measure and control your home's power usage from anywhere via LCD and Adafruit IO app!
 
 ---
 
-## Project Features
+## Features
 
-- Real-time energy consumption measurement
-- Local LCD display for instant readings
-- Cloud connectivity via Adafruit IO
-- Prepaid energy balance management and automatic relay cut-off
-- Remote appliance control through serial commands and Adafruit IO app
+- **Real-time monitoring:** Display voltage, current, power, and energy on local LCD.
+- **Cloud dashboard:** Sends live updates to [Adafruit IO](https://io.adafruit.com/) for remote monitoring on mobile/PC.
+- **Prepaid metering:** Deducts energy balance automatically as you use power.
+- **Automatic supply cut-off:** Relay disconnects load when balance reaches zero.
+- **Home automation:** Remotely turn appliances ON/OFF via Adafruit IO or serial commands.
+- **Low balance alerts:** Visual warnings and relay control for safe operation.
+- **DIY-friendly:** Open hardware, full schematic, and code provided.
 
-## Components Used
+---
 
-- ESP8266 / ESP32 (Wi-Fi-enabled microcontroller)
-- ACS712 Current sensor
-- Voltage divider network
-- 16×2 LCD display
+## Hardware Overview
+
+![System Hardware Schematic](images/system_schematic.png)
+> *Replace this path with your actual schematic/circuit image in your repo!*
+
+**Core Components:**
+- ESP8266 or ESP32 MCU (WiFi-enabled)
+- ACS712 Current Sensor
+- Voltage divider (for AC voltage sensing)
+- 16x2 LCD (parallel interface)
 - Relay module
-- Optocoupler (for pulse counting)
-- Adafruit IO for cloud data visualisation
+- Optocoupler (for pulse counting from meter)
+- (Optional) Proteus simulation files for testing
+
+---
+
+## Cloud Dashboard
+
+View live energy consumption, prepaid balance, and control appliances via **Adafruit IO**:
+
+![Adafruit IO Dashboard Screenshot](images/adafruit_dashboard.png)
+> *Replace with a screenshot of your actual Adafruit IO dashboard!*
+
+---
+
+##  How It Works
+
+1. **Energy Monitoring:**  
+   The microcontroller continuously reads current and voltage, computes power/energy, and displays them locally.
+
+2. **Prepaid System:**  
+   User’s prepaid balance (in ₹) is stored in EEPROM. Each kWh used deducts from balance; supply is cut off when depleted.
+
+3. **Cloud Sync:**  
+   ESP8266/ESP32 pushes live data (power, units, balance) to Adafruit IO using MQTT/HTTP.
+
+4. **Remote Automation:**  
+   Control relays (fan, light, etc.) using Adafruit IO dashboard buttons, or locally via serial commands (`A`, `B`, `C`, `D`).
+
+---
+
+## Circuit Diagram
+
+![image](https://github.com/user-attachments/assets/d58625c7-f9ef-4ea7-8f5a-054fff0587d0)
+
+
+---
+
+## Quantity of Materials
+
+| Component         | Specification             | Quantity |
+|-------------------|--------------------------|----------|
+| ESP8266/ESP32     | NodeMCU/Wemos D1 Mini    | 1        |
+| ACS712            | 5A/20A/30A Module        | 1        |
+| Relay Module      | 5V, single-channel       | 1        |
+| 16x2 LCD          | HD44780-compatible       | 1        |
+| Voltage Divider   | (per schematic)          | 1        |
+| Optocoupler       | e.g., PC817              | 1        |
+| Misc              | Resistors, wires, PCB    | as reqd  |
+
+---
+
+## Setup & Installation
+
+### 1. **Clone this Repository**
+```sh
+git clone https://github.com/PRAYAG2000n/Smart-energy-meter-with-home-automation.git
+cd Smart-energy-meter-with-home-automation
+```
+### 2. Install Arduino Libraries
+Adafruit IO Arduino
+LiquidCrystal
+Install via Arduino IDE Library Manager (Sketch → Include Library → Manage Libraries).
+
+### 3. Flash the Code
+Select your board (ESP8266/ESP32) and upload the code.
+
+### 4. Connect Hardware
+Wire up as per schematic, including sensors, LCD, relay, and opto input.
+
+### 5. Set up Adafruit IO
+Sign up and create feeds named power, units, and balance.
 
 ## Usage
+- Live data: Shown on LCD and Adafruit IO dashboard.
+- Control appliances via Adafruit IO dashboard switches or serial: Send A (LED ON), B (LED OFF), C (Fan ON), D (Fan OFF)
+- Automatic cut-off: Power supply cuts off at zero balance (prepaid model).
+- Recharge: Update EEPROM balance as needed for demo/testing.
 
-- Appliance control is possible through serial commands ('A', 'B', 'C', 'D') or via the Adafruit IO dashboard.
-- Energy usage is monitored in real-time, and power supply is automatically cut off when the prepaid balance reaches zero.
-- The current balance and units are displayed both locally and on the mobile app.
-
-## Libraries
-- Adafruit IO Arduino for Adafruit IO cloud integration (https://github.com/adafruit/Adafruit_IO_Arduino)
-- Liquid crystal for LCD display (https://github.com/arduino-libraries/LiquidCrystal)
-- Adafruit MQTT Library for MQTT protocol where the energy meter publishes live power/unit/balance readings to Adafruit IO using MQTT, which is more efficient and reliable for IoT data streams than regular HTTP. (https://github.com/adafruit/Adafruit_MQTT_Library/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
-- Arduino JSON for sending (or receiving) data to/from Adafruit IO or other cloud services, values are packaged into JSON strings. This lets the cloud service and your device “understand” each other—regardless of programming language or platform.
-
-## Software and hardware model of smart energy meter with home automation
-![image](https://github.com/user-attachments/assets/bfa4ac20-e0a8-48fe-9258-c365f394d2fb)
-
-![image](https://github.com/user-attachments/assets/4841a30d-0ed5-4031-971e-855b41fb078e)
-
-![image](https://github.com/user-attachments/assets/5d6cafdb-9de7-40a8-96b2-de697e258f4c)
-
-![image](https://github.com/user-attachments/assets/bb55e4e9-d294-4c65-84c3-155a1f6503f9)
+## Images of smart energy meter with home automation (Both software and hardware circuits)
+![image](https://github.com/user-attachments/assets/249d0f12-0d18-4a77-b0df-c6e34adb5b17)
+![image](https://github.com/user-attachments/assets/ed8cded9-e101-4d37-82dc-6653429426f2)
+![image](https://github.com/user-attachments/assets/d5ec1c08-9b09-4f39-a707-79da8cf8b88a)
+![image](https://github.com/user-attachments/assets/9cc151f2-4a00-44ab-8099-54b0b6542504)
 
 
-## Project Report and Documentation
+## Documentation
+See Smart energy meter with home automation report.docx for theory, calibration, results, and design notes.
 
-The information regarding this project is included in the word document.
+
 
