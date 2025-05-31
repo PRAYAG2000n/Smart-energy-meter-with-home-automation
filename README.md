@@ -35,8 +35,8 @@ A dual-purpose IoT project that measures household energy consumption in real ti
 - Arduino JSON for sending (or receiving) data to/from Adafruit IO or other cloud services, values are packaged into JSON strings. This lets the cloud service and your device “understand” each other—regardless of programming language or platform.
 
 ## Software and hardware model of smart energy meter with home automation
+![image](https://github.com/user-attachments/assets/bfa4ac20-e0a8-48fe-9258-c365f394d2fb)
 
-![image](https://github.com/user-attachments/assets/1e60643b-a1ba-4f8b-8ede-31a2c1c370a6)
 ![image](https://github.com/user-attachments/assets/4841a30d-0ed5-4031-971e-855b41fb078e)
 
 
