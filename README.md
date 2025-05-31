@@ -1,4 +1,4 @@
-# 📡 Integrated Smart Energy Meter with Home Automation
+# Integrated Smart Energy Meter with Home Automation
 
 A **real-time, IoT-enabled prepaid smart energy meter** with live cloud monitoring and home automation capabilities. Measure and control your home's power usage from anywhere via LCD and Adafruit IO app!
 
