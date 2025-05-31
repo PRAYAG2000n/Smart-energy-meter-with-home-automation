@@ -18,9 +18,6 @@ A **real-time, IoT-enabled prepaid smart energy meter** with live cloud monitori
 
 ## Hardware Overview
 
-![System Hardware Schematic](images/system_schematic.png)
-> *Replace this path with your actual schematic/circuit image in your repo!*
-
 **Core Components:**
 - ESP8266 or ESP32 MCU (WiFi-enabled)
 - ACS712 Current Sensor
