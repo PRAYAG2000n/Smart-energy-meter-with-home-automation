@@ -32,6 +32,3 @@ A dual-purpose IoT project that measures household energy consumption in real ti
 
 The detailed project report is included in this repository for reference.
 
-## Contact
-
-For queries or issues, contact the project maintainer or raise an issue on GitHub.
