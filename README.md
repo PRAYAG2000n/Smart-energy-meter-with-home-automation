@@ -29,15 +29,6 @@ A **real-time, IoT-enabled prepaid smart energy meter** with live cloud monitori
 
 ---
 
-## Cloud Dashboard
-
-View live energy consumption, prepaid balance, and control appliances via **Adafruit IO**:
-
-![Adafruit IO Dashboard Screenshot](images/adafruit_dashboard.png)
-> *Replace with a screenshot of your actual Adafruit IO dashboard!*
-
----
-
 ##  How It Works
 
 1. **Energy Monitoring:**  
